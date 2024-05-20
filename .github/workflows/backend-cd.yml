@@ -9,7 +9,7 @@ on:
 jobs:
   Linting:
     runs-on: ubuntu-latest
-    environment: Devlopment
+    environment: Development
 
     steps:
     - name: Checkout
