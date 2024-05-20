@@ -11,13 +11,13 @@ jobs:
     environment: Devlopmnet Environment
 
     steps:
-    - name: Check the Repository
+    - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Use Node.js 18
+    - name: Use Node.js latest
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: latest
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
 
@@ -25,20 +25,20 @@ jobs:
       working-directory: starter/frontend
       run: npm ci
 
-    - name: Checkout Run Lint
+    - name: Run Lint
       run: cd starter/frontend && npm run lint
 
   Test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check the Repository
+    - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Use Node.js 18
+    - name: Use Node.js 
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: latest
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
     - name: Install Dependencies
@@ -56,10 +56,10 @@ jobs:
     - name: Check the Repository
       uses: actions/checkout@v3
     
-    - name: Use Node.js 18
+    - name: Use Node.js latest
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: latest
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
 
