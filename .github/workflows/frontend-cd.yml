@@ -88,9 +88,10 @@ jobs:
       env:
         IMAGE_TAG: latest
         REPO_NAME: frontend
+        REPO_ID: 233718526883
       run: |
-        docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag 233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
-        docker push 233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+        docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag $REPO_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
+        docker push $REPO_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
     
 
     - name: Configure Kubeconfig
@@ -103,6 +104,7 @@ jobs:
       env:
         IMAGE_TAG: latest
         REPO_NAME: frontend
+        REPO_ID: 233718526883
       run: |
-          kustomize edit set image frontend=233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          kustomize edit set image frontend=$REPO_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
           kustomize build | kubectl apply -f -
