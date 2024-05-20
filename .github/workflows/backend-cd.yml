@@ -83,7 +83,7 @@ jobs:
         REPO_NAME: backend
       run: |
         docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag 233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
-        docker push 233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_BACKEND:$IMAGE_TAG
+        docker push 233718526883.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
     - name: Update Kubeconfig
       run:
        aws eks update-kubeconfig --name udacity-project4 --region us-east-1
