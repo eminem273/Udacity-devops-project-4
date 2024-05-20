@@ -94,7 +94,7 @@ jobs:
       env:
         IMAGE_TAG: latest
         REPO_NAME: backend
-	REPO_ID: 233718526883
+        REPO_ID: 233718526883
       run: |
         aws eks update-kubeconfig --name udacity-project-4 --region us-east-1
         kustomize edit set image backend=$REPO_ID.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
