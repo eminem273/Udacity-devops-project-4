@@ -86,7 +86,7 @@ jobs:
     - name: Build and push Docker Image
       working-directory: starter/frontend
       env:
-        IMAGE_TAG: $GITHUB_SHA
+        IMAGE_TAG: ${{ github.sha }}
         REPO_NAME: frontend
         REPO_ID: 233718526883
       run: |
@@ -102,7 +102,7 @@ jobs:
     - name: Deploy Docker Image to Amazon EKS
       working-directory: starter/frontend/k8s
       env:
-        IMAGE_TAG: $GITHUB_SHA
+        IMAGE_TAG: ${{ github.sha }}
         REPO_NAME: frontend
         REPO_ID: 233718526883
       run: |
